@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+  </head>
+  <body>
+    <script>
+      function show_value(x)
+      {
+      document.getElementById("slider_value").innerHTML=x;
+      }
+    </script>
+    <h1>Prototype Module Inference</h1>
+    <section class="the-form">
+      <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+          Select image to clasify:
+          <input type=file name=photo>
+          <br>
+          Minimum Confidence Threshold
+          <input type="range" id="threshold" name="threshold" min="0" max="1" value="0.4" step="0.01" onchange="show_value(this.value);">
+          <span id="slider_value">0.4</span>
+          <br>
+          <br>
+          <input type="submit" value="Upload Image" name="submit">
+          
+      </form>
+    </section>
+  </body>
+</html>
